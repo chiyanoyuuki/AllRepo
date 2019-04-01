@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;v01.LauncherSIMUL2&apos; to &apos;Launcher&apos;&#x0D;&#x0A;- Original project: &apos;Trading&apos;&#x0D;&#x0A;- Original element: &apos;v01.LauncherSIMUL2&apos;&#x0D;&#x0A;- Renamed element: &apos;v01.Launcher&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;LauncherSIMUL2&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;v01{LauncherSIMUL2.java[LauncherSIMUL2" matchStrategy="1" name="Launcher" qualified="false" references="true" similarDeclarations="false" stamp="1554132671397" textual="false" version="1.0"/>
+</session>

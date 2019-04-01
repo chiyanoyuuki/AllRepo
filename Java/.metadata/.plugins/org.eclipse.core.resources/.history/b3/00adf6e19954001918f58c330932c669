@@ -1,0 +1,34 @@
+package v1;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.jsoup.*;
+import org.jsoup.nodes.*;
+import org.jsoup.select.*;
+
+public class TestJSOUP 
+{
+	private final String SITE = "https://fr.investing.com/indices/major-indices";
+	//-----------------------------------
+	
+	public TestJSOUP() throws IOException
+	{
+		Connection c = Jsoup.connect(SITE);
+		Document d = c.get();
+		
+		Elements tables = d.select("table");
+		Elements lignes = tables.get(0).select("tr");
+		for(Element ligne:lignes)
+		{
+			Elements colonnes = ligne.select("td");
+			List<String> tmp = colonnes.eachText();
+			if(tmp.size()>0)System.out.println(tmp);
+		}
+	}
+	
+	public static void main(String[] args) throws IOException
+	{
+		TestJSOUP jsoup = new TestJSOUP();
+	}
+}

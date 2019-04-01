@@ -1,0 +1,52 @@
+package v1;
+
+import java.io.*;
+import java.net.*;
+import java.util.*;
+
+public class Launcher 
+{
+	private StringBuilder build;
+	private int x;
+	private ArrayList<String> tab;
+	private ArrayList<ArrayList<String>> lignes; 
+	private StringBuilder sbDoc;
+	private String doc;
+	
+	public Launcher() throws IOException
+	{
+		tab = new ArrayList<String>();
+		read("https://www.boursorama.com/bourse/indices/internationaux");
+		while(doc.toString().contains("<tabliuhie"))
+		{
+			String tmp = doc.substring(doc.indexOf("<table"),doc.indexOf("/table>"));
+			System.out.println("\n---\n"+tmp+"\n---\n");
+			tab.add(tmp);
+			doc = doc.substring(doc.indexOf("/table>"));
+		}
+	}
+	
+	private void read(String URL)
+	{
+		try 
+		{ 
+			URL url = new URL(URL);
+		 	URLConnection uc = url.openConnection(); 
+		 	InputStream in = uc.getInputStream(); 
+		 	int intCar = in.read(); 
+		 	sbDoc = new StringBuilder();
+		 	while (intCar != -1) 
+		 	{ 
+		 		char car = (char) intCar;
+		 		sbDoc.append(car); 
+		  		intCar = in.read();
+		 	} 	   
+		} 
+		catch (MalformedURLException e) {e.printStackTrace();} catch (IOException e) {e.printStackTrace();}
+		doc = sbDoc.toString();
+		doc = doc.substring(doc.indexOf("<table"));
+		System.out.println(doc);
+	}
+	
+	public static void main(String[] args) throws IOException{Launcher l = new Launcher();}
+}

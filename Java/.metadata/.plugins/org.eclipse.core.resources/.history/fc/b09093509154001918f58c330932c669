@@ -1,0 +1,20 @@
+package v1;
+
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
+import org.apache.commons.io.IOUtils;
+
+public class TestSocket 
+{
+	public static void main(String[] args) throws UnknownHostException, IOException
+	{
+		Socket sock = new Socket("https://fr.investing.com/indices/major-indices", 80);
+		BufferedInputStream bis = new BufferedInputStream(sock.getInputStream());
+		String doc = IOUtils.toString(bis,"UTF-8");
+		System.out.println(doc);
+		sock.close();
+	}   
+}

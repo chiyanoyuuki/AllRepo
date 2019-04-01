@@ -1,0 +1,23 @@
+package v1;
+
+import java.util.ArrayList;
+
+public class Indice 
+{
+	public ArrayList<Double> vals;
+	
+	public Indice(Double val)
+	{
+		this.vals = new ArrayList<Double>();
+		this.vals.add(val);
+	}
+	
+	public void show()
+	{
+		for(Double d:vals) 
+		{
+			System.out.print(String.format("%-10s", ""+d));
+		}
+		System.out.println();
+	}
+}

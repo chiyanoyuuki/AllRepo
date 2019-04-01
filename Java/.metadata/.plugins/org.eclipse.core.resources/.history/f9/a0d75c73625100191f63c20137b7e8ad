@@ -1,0 +1,19 @@
+package v1;
+
+import java.util.ArrayList;
+
+public class Indice 
+{
+	public ArrayList<String> vals;
+	
+	public Indice(ArrayList<String> vals)
+	{
+		this.vals = vals;
+	}
+	
+	public void show()
+	{
+		for(String s:vals) {System.out.print(String.format("%-40s", (s.length()>39?s.substring(0,39):s)));}
+		System.out.println();
+	}
+}

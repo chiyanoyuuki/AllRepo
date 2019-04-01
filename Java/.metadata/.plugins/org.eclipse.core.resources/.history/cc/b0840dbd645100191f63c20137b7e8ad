@@ -1,0 +1,99 @@
+package v1;
+
+import java.io.*;
+import java.net.*;
+import java.util.*;
+
+public class Launcher 
+{
+	private StringBuilder build;
+	private int x;
+	private ArrayList<String> tab,lignesNonFormat;
+	private HashMap<String,Indice> indices;
+	private StringBuilder sbDoc;
+	private String doc;
+	
+	public Launcher() throws IOException
+	{
+		read("https://www.boursorama.com/bourse/indices/internationaux");
+		getTab();
+		getLignes();
+		formatLignes();
+		Iterator<String> it = indices.keySet().iterator();while(it.hasNext()) {indices.get(it.next()).show();}
+	}
+	
+	private void read(String URL)
+	{
+		try 
+		{ 
+			URL url = new URL(URL);
+		 	BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(),"UTF-8")); 
+		 	int intCar = in.read(); 
+		 	sbDoc = new StringBuilder();
+		 	String tmp;
+		 	while ((tmp=in.readLine())!=null) {sbDoc.append(tmp);} 	   
+		} 
+		catch (MalformedURLException e) {e.printStackTrace();} catch (IOException e) {e.printStackTrace();}
+		doc = sbDoc.toString();
+		doc = doc.substring(doc.indexOf("<table"));
+	}
+	private void getTab()
+	{
+		tab = new ArrayList<String>();
+		String word = "table";String start = "<"+word;String end = "/"+word+">";int tailleEnd = end.length();
+		
+		while(doc.contains(start))
+		{
+			int deb = doc.indexOf(start);
+			int fin = doc.indexOf(end);
+			tab.add(doc.substring(deb,fin));
+			doc = doc.substring(fin+tailleEnd);
+		}
+	}
+	private void getLignes()
+	{
+		lignesNonFormat = new ArrayList<String>();
+		String word = "tr";String start = "<"+word;String end = "/"+word+">";int tailleEnd = end.length();
+		
+		for(String tab:this.tab)
+		{
+			while(tab.contains(start))
+			{
+				int deb = tab.indexOf(start);
+				int fin = tab.indexOf(end);
+				lignesNonFormat.add(tab.substring(deb,fin).replaceAll("\n", ""));
+				tab = tab.substring(fin+tailleEnd);
+			}
+		}
+	}
+	private void formatLignes()
+	{
+		indices = new HashMap<String,Indice>();
+		System.out.println(lignesNonFormat.size() + " indices trouvés");
+		for(String ligne : lignesNonFormat)
+		{
+			ArrayList<String> tmp = new ArrayList<String>();
+			String word = "td";String start = "<"+word;String end = "/"+word+">";int tailleEnd = end.length();
+			String actuelle = ligne;
+			
+			while(actuelle.contains(start))
+			{
+				int deb = actuelle.indexOf(start);
+				int fin = actuelle.indexOf(end);
+				String data = actuelle.substring(deb,fin).replaceAll("<[^>]+>", "").replaceAll(" {2,}", " ").replaceAll("(^ *| *$| *< *| *> *)","");
+				if(!data.matches(" *"))tmp.add(data);
+				actuelle = actuelle.substring(fin+tailleEnd);
+			}
+			if(tmp.size()==6)
+			{
+			}
+			else if(tmp.size()==5)
+			{
+			}
+				String nom = tmp.get(tmp.size()>5?1:0);
+				if(indices.containsKey(nom))System.out.println("DUPLICATE " + nom);
+				else indices.put(nom,new Indice(tmp));
+		}
+	}
+	public static void main(String[] args) throws IOException{Launcher l = new Launcher();}
+}
