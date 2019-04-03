@@ -1,0 +1,10 @@
+<div style="display:flex">
+  <div>
+    <ng-template ngFor let-indice [ngForOf]="datas[0]">
+      <div>
+        <p>{{indice.nom}}</p>
+      </div>
+    </ng-template>
+  </div>
+  <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+</div>

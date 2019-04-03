@@ -2,7 +2,7 @@ ColWidths_connform.ListSessions<|||>1<|||>163,50,50,50,50,50,53
 ColsVisible_connform.ListSessions<|||>1<|||>0
 ColPositions_connform.ListSessions<|||>1<|||>0,1,2,3,4,5,6
 ColSort_connform.ListSessions<|||>1<|||>0,0
-MainWinLeft<|||>3<|||>2525
+MainWinLeft<|||>3<|||>4347
 ColWidths_MainForm.ListDatabases<|||>1<|||>150,80,50,50,50,50,50,50,50,50,120
 ColsVisible_MainForm.ListDatabases<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10
 ColPositions_MainForm.ListDatabases<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10
@@ -27,7 +27,7 @@ ColWidths_MainForm.ListTables<|||>1<|||>120,70,70,120,120,70,100,50,70,70,70,70,
 ColsVisible_MainForm.ListTables<|||>1<|||>0,1,2,3,4,5,6,18
 ColPositions_MainForm.ListTables<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18
 ColSort_MainForm.ListTables<|||>1<|||>0,0
-LastSessions<|||>1<|||>Portable
+LastSessions<|||>1<|||>Unnamed|Portable
 LastActiveSession<|||>1<|||>Portable
 SessionManager_WindowLeft<|||>3<|||>2011
 SessionManager_WindowTop<|||>3<|||>216
@@ -43,10 +43,13 @@ ColWidths_frmTableEditor.listForeignKeys<|||>1<|||>101,80,100,80,80,80
 ColsVisible_frmTableEditor.listForeignKeys<|||>1<|||>0,1,2,3,4,5
 ColPositions_frmTableEditor.listForeignKeys<|||>1<|||>0,1,2,3,4,5
 ColSort_frmTableEditor.listForeignKeys<|||>1<|||>-1,0
-MainWinTop<|||>3<|||>230
+MainWinTop<|||>3<|||>-116
 MemoEditorWidth<|||>3<|||>136
-MainWinMaximized<|||>3<|||>1
-MainWinOnMonitor<|||>3<|||>0
+MainWinMaximized<|||>3<|||>0
+MainWinOnMonitor<|||>3<|||>2
+MainWinWidth<|||>3<|||>1371
+MainWinHeight<|||>3<|||>1061
+querymemoheight<|||>3<|||>65
 Servers\Portable\SessionCreated<|||>1<|||>2019-04-02 14:05:26
 Servers\Portable\Host<|||>1<|||>192.168.1.26
 Servers\Portable\WindowsAuth<|||>3<|||>0
@@ -78,10 +81,19 @@ Servers\Portable\SSL_CA<|||>1<|||>
 Servers\Portable\SSL_Cipher<|||>1<|||>
 Servers\Portable\RefusedCount<|||>3<|||>4
 Servers\Portable\ServerVersionFull<|||>1<|||>10.3.13-MariaDB - mariadb.org binary distribution
-Servers\Portable\ConnectCount<|||>3<|||>1
+Servers\Portable\ConnectCount<|||>3<|||>2
 Servers\Portable\ServerVersion<|||>3<|||>100313
-Servers\Portable\LastConnect<|||>1<|||>2019-04-02 14:11:24
-Servers\Portable\trading|valeurs_indices\Sort<|||>1<|||>1_DATE|
+Servers\Portable\LastConnect<|||>1<|||>2019-04-03 10:14:30
+Servers\Portable\lastUsedDB<|||>1<|||>trading
+Servers\Portable\QueryHistory\1<|||>1<|||>2019-04-03 10:29:20|trading|16|SELECT COUNT(*) FROM VALEURS_INDICES
+Servers\Portable\QueryHistory\2<|||>1<|||>2019-04-03 11:33:37|trading|15|SELECT *<{{{><}}}>FROM VALEURS_INDICES <{{{><}}}>WHERE ID=13
+Servers\Portable\QueryHistory\3<|||>1<|||>2019-04-03 11:33:49|trading|0|SELECT *<{{{><}}}>FROM VALEURS_INDICES <{{{><}}}>WHERE ID=13<{{{><}}}>ORDER BY DATE
+Servers\Portable\QueryHistory\4<|||>1<|||>2019-04-03 11:34:12|trading|0|SELECT COUNT(*)<{{{><}}}>FROM VALEURS_INDICES <{{{><}}}>WHERE ID=13<{{{><}}}>ORDER BY DATE
+Servers\Portable\QueryHistory\5<|||>1<|||>2019-04-03 17:26:47|trading|16|SELECT VAL AS y, DATE AS label FROM VALEURS_INDICES WHERE ID=13 ORDER BY DATE
+Servers\Portable\QueryHistory\6<|||>1<|||>2019-04-03 19:05:20|trading|47|SELECT COUNT(*) FROM INDICES I, VALEURS_INDICES V WHERE I.ID = V.ID GROUP BY I.NOM
+Servers\Portable\QueryHistory\7<|||>1<|||>2019-04-03 19:05:26|trading|47|SELECT I.NOM, COUNT(*) FROM INDICES I, VALEURS_INDICES V WHERE I.ID = V.ID GROUP BY I.NOM
+Servers\Portable\QueryHistory\8<|||>1<|||>2019-04-03 19:05:38|trading|47|SELECT I.NOM, COUNT(*) AS 'NOMBRE DE VALEURS DEPUIS MINUIT' FROM INDICES I, VALEURS_INDICES V WHERE I.ID = V.ID GROUP BY I.NOM
+Servers\Portable\QueryHistory\9<|||>1<|||>2019-04-03 19:05:47|trading|63|SELECT I.NOM, COUNT(*) AS 'NOMBRE DE VALEURS ENREGISTREES DEPUIS MINUIT' FROM INDICES I, VALEURS_INDICES V WHERE I.ID = V.ID GROUP BY I.NOM
 Servers\Unnamed\SessionCreated<|||>1<|||>2019-03-31 18:15:20
 Servers\Unnamed\Host<|||>1<|||>127.0.0.1
 Servers\Unnamed\WindowsAuth<|||>3<|||>0
@@ -113,9 +125,9 @@ Servers\Unnamed\SSL_CA<|||>1<|||>
 Servers\Unnamed\SSL_Cipher<|||>1<|||>
 Servers\Unnamed\RefusedCount<|||>3<|||>3
 Servers\Unnamed\ServerVersionFull<|||>1<|||>10.3.10-MariaDB - mariadb.org binary distribution
-Servers\Unnamed\ConnectCount<|||>3<|||>3
+Servers\Unnamed\ConnectCount<|||>3<|||>4
 Servers\Unnamed\ServerVersion<|||>3<|||>100310
-Servers\Unnamed\LastConnect<|||>1<|||>2019-04-02 11:13:25
+Servers\Unnamed\LastConnect<|||>1<|||>2019-04-03 09:53:24
 Servers\Unnamed\lastUsedDB<|||>1<|||>trading
 Servers\Unnamed\QueryHistory\1<|||>1<|||>2019-04-01 20:38:14|trading|0|INSERT INTO INDICES (NOM) VALUES ('TESTh2')
 Servers\Unnamed\QueryHistory\2<|||>1<|||>2019-04-01 20:38:24|trading|0|INSERT INTO INDICES (NOM) VALUES ('TESThh2')

@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+p
+    {color:white;}
+body
+    {background-color:#555;}
+.divClickable:hover
+    {cursor:pointer;}
+.divClickable:hover p
+    {font-weight:bold;}

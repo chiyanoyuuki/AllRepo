@@ -1,1 +1,13 @@
 1554132636270	Rename Java project 'Trading'
+1554210290139	Delete 8 resources
+1554210596170	Delete resource 'Back'
+1554235380113	Delete resource 'Back/src/main/webapp/WEB-INF/web.xml'
+1554235625615	Delete resource 'Back/src/main/webapp/WEB-INF/beans.xml'
+1554235642700	Delete resource 'Back/src/main/webapp'
+1554237346421	Delete resource 'Back/src/main/webapp'
+1554280858420	Delete resource 'test/src/main/java/com/tempo/test/zcontroller'
+1554281218045	Delete resource 'test/src/main/java/com/tempo/test/BackApplication.java'
+1554281987178	Delete resource 'test/src/main/java/com/tempo/xtest/manager/IndiceDaoImpl.java'
+1554282066634	Delete resource 'test/src/main/java/com/tempo/xtest/dao/IndiceManager.java'
+1554282067631	Delete resource 'test/src/main/java/com/tempo/xtest/dao/IndiceManagerImpl.java'
+1554282208215	Delete resource 'test/src/main/resources/beans.xml'
