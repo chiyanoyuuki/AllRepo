@@ -5,4 +5,4 @@ body
 .divClickable:hover
     {cursor:pointer;}
 .divClickable:hover p
-    {font-weight:bold;}
+    {font-weight:bold;color:pink}

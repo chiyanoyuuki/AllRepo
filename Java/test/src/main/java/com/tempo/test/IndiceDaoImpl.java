@@ -30,4 +30,11 @@ public class IndiceDaoImpl
 		List<IndiceVal> indices = jdbcTemplate.query(SQL,new BeanPropertyRowMapper<IndiceVal>(IndiceVal.class));   
 		return indices;
 	}
+	
+	public List<IndiceVal> getIndicesNewVals(int ID, String DATE)
+	{
+		String SQL = "SELECT VAL, DATE FROM VALEURS_INDICES WHERE ID="+ID+" AND DATE>'"+DATE+"' ORDER BY DATE";
+		List<IndiceVal> indices = jdbcTemplate.query(SQL,new BeanPropertyRowMapper<IndiceVal>(IndiceVal.class));   
+		return indices;
+	}
 }

@@ -26,4 +26,11 @@ public class IndiceController
 		List<IndiceVal> indices = indiceDao.getIndicesVals(ID);
         return new ResponseEntity<List<IndiceVal>>(indices,HttpStatus.OK);
     }
+	
+	@GetMapping(value = "/IndicesNewVals", produces = "application/json")
+    public ResponseEntity<List<IndiceVal>> getIndicesNewVals(@RequestParam int ID, @RequestParam String DATE) 
+	{
+		List<IndiceVal> indices = indiceDao.getIndicesNewVals(ID,DATE);
+        return new ResponseEntity<List<IndiceVal>>(indices,HttpStatus.OK);
+    }
 }

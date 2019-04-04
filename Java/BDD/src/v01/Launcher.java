@@ -23,7 +23,7 @@ public class Launcher
 			
 			ResultSet rs = st.executeQuery("SELECT V.ID, I.NOM AS INDICE, V.VAL AS VALEUR, V.DATE FROM INDICES I, VALEURS_INDICES V WHERE I.ID=V.ID AND DATE >= '"+d+"' AND DATE < '"+d2+"' ORDER BY V.ID, DATE");
 			
-			File tmpDir = new File("./cache/"+d.substring(0,7)+".csv");
+			File tmpDir = new File("./cache/"+d.substring(0,10)+".csv");
 			if(tmpDir.exists()) {System.out.println("LE FICHIER EXISTE DEJA");System.exit(0);}
 			FileWriter fw = new FileWriter(tmpDir);
 			

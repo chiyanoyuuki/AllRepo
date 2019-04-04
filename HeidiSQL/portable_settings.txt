@@ -27,7 +27,7 @@ ColWidths_MainForm.ListTables<|||>1<|||>120,70,70,120,120,70,100,50,70,70,70,70,
 ColsVisible_MainForm.ListTables<|||>1<|||>0,1,2,3,4,5,6,18
 ColPositions_MainForm.ListTables<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18
 ColSort_MainForm.ListTables<|||>1<|||>0,0
-LastSessions<|||>1<|||>Unnamed|Portable
+LastSessions<|||>1<|||>Portable
 LastActiveSession<|||>1<|||>Portable
 SessionManager_WindowLeft<|||>3<|||>2011
 SessionManager_WindowTop<|||>3<|||>216
@@ -81,9 +81,9 @@ Servers\Portable\SSL_CA<|||>1<|||>
 Servers\Portable\SSL_Cipher<|||>1<|||>
 Servers\Portable\RefusedCount<|||>3<|||>4
 Servers\Portable\ServerVersionFull<|||>1<|||>10.3.13-MariaDB - mariadb.org binary distribution
-Servers\Portable\ConnectCount<|||>3<|||>2
+Servers\Portable\ConnectCount<|||>3<|||>4
 Servers\Portable\ServerVersion<|||>3<|||>100313
-Servers\Portable\LastConnect<|||>1<|||>2019-04-03 10:14:30
+Servers\Portable\LastConnect<|||>1<|||>2019-04-04 11:40:30
 Servers\Portable\lastUsedDB<|||>1<|||>trading
 Servers\Portable\QueryHistory\1<|||>1<|||>2019-04-03 10:29:20|trading|16|SELECT COUNT(*) FROM VALEURS_INDICES
 Servers\Portable\QueryHistory\2<|||>1<|||>2019-04-03 11:33:37|trading|15|SELECT *<{{{><}}}>FROM VALEURS_INDICES <{{{><}}}>WHERE ID=13
@@ -94,6 +94,7 @@ Servers\Portable\QueryHistory\6<|||>1<|||>2019-04-03 19:05:20|trading|47|SELECT 
 Servers\Portable\QueryHistory\7<|||>1<|||>2019-04-03 19:05:26|trading|47|SELECT I.NOM, COUNT(*) FROM INDICES I, VALEURS_INDICES V WHERE I.ID = V.ID GROUP BY I.NOM
 Servers\Portable\QueryHistory\8<|||>1<|||>2019-04-03 19:05:38|trading|47|SELECT I.NOM, COUNT(*) AS 'NOMBRE DE VALEURS DEPUIS MINUIT' FROM INDICES I, VALEURS_INDICES V WHERE I.ID = V.ID GROUP BY I.NOM
 Servers\Portable\QueryHistory\9<|||>1<|||>2019-04-03 19:05:47|trading|63|SELECT I.NOM, COUNT(*) AS 'NOMBRE DE VALEURS ENREGISTREES DEPUIS MINUIT' FROM INDICES I, VALEURS_INDICES V WHERE I.ID = V.ID GROUP BY I.NOM
+Servers\Portable\QueryHistory\10<|||>1<|||>2019-04-04 11:41:20|trading|16|SELECT * FROM VALEURS_INDICES WHERE ID = 13 AND DATE = (SELECT MAX(DATE))
 Servers\Unnamed\SessionCreated<|||>1<|||>2019-03-31 18:15:20
 Servers\Unnamed\Host<|||>1<|||>127.0.0.1
 Servers\Unnamed\WindowsAuth<|||>3<|||>0

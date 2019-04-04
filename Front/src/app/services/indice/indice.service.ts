@@ -15,4 +15,7 @@ export class IndiceService
   
   getIndiceVals(ID:number):Observable<IndiceValModule[]>
   {return this.dataService.get("IndicesVals?ID="+ID);}
+  
+  getIndiceNewVals(ID:number,DATE:Date):Observable<IndiceValModule[]>
+  {return this.dataService.get("IndicesNewVals?ID="+ID+"&DATE="+DATE);}
 }

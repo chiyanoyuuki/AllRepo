@@ -41,28 +41,39 @@ public class Launcher
 			}
 		}
 		
+		int nb = 0;
 		int i=0;
 		while(true)
 		{
-			System.out.print(i++);
+			
 			Thread.sleep(1000);
 			d = c.get();
 				
 			tables = d.select("table");
-			lignes = tables.get(0).select("tr");
-			for(Element ligne:lignes)
+			if(tables.size()>0)
 			{
-				Elements colonnes = ligne.select("td");
-				List<String> tmp = colonnes.eachText();
-				if(tmp.size()>0)
+				if(nb%1000==0)System.out.println("Nombre : " + nb);
+				
+				
+				lignes = tables.get(0).select("tr");
+				for(Element ligne:lignes)
 				{
-					String nom = tmp.get(1);
-					double val = Double.parseDouble(tmp.get(2).replaceAll("\\.", "").replaceAll(",","."));
-					indices.get(nom).addVal(val,st);
+					Elements colonnes = ligne.select("td");
+					List<String> tmp = colonnes.eachText();
+					if(tmp.size()>0)
+					{
+						String nom = tmp.get(1);
+						double val = Double.parseDouble(tmp.get(2).replaceAll("\\.", "").replaceAll(",","."));
+						indices.get(nom).addVal(val,st);
+					}
 				}
 			}
+			else
+			{
+				System.out.println("ERREUR : " + String.format("%05d", i++)+ " ("+nb+")");
+			}
+			nb++;
 		}
-		
 	}
 	
 	public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException, SQLException{@SuppressWarnings("unused")Launcher launcher = new Launcher();}

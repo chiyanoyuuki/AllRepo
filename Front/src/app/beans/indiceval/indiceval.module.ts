@@ -10,9 +10,9 @@ import { CommonModule } from '@angular/common';
 export class IndiceValModule 
 { 
   val: number;
-  date: Date;
+  date: string;
 
-  IndiceModule(val:number,date:Date)
+  IndiceModule(val:number,date:string)
   {
     this.val = val;
     this.date = date;
