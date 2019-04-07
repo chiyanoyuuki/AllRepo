@@ -29,8 +29,8 @@ ColPositions_MainForm.ListTables<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
 ColSort_MainForm.ListTables<|||>1<|||>0,0
 LastSessions<|||>1<|||>Portable
 LastActiveSession<|||>1<|||>Portable
-SessionManager_WindowLeft<|||>3<|||>2011
-SessionManager_WindowTop<|||>3<|||>216
+SessionManager_WindowLeft<|||>3<|||>2853
+SessionManager_WindowTop<|||>3<|||>60
 ColWidths_frmTableEditor.listColumns<|||>1<|||>54,100,156,90,60,65,50,119,130,140,100,100
 ColsVisible_frmTableEditor.listColumns<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10,11
 ColPositions_frmTableEditor.listColumns<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10,11
@@ -81,11 +81,10 @@ Servers\Portable\SSL_CA<|||>1<|||>
 Servers\Portable\SSL_Cipher<|||>1<|||>
 Servers\Portable\RefusedCount<|||>3<|||>4
 Servers\Portable\ServerVersionFull<|||>1<|||>10.3.13-MariaDB - mariadb.org binary distribution
-Servers\Portable\ConnectCount<|||>3<|||>4
+Servers\Portable\ConnectCount<|||>3<|||>5
 Servers\Portable\ServerVersion<|||>3<|||>100313
-Servers\Portable\LastConnect<|||>1<|||>2019-04-04 11:40:30
+Servers\Portable\LastConnect<|||>1<|||>2019-04-07 13:41:59
 Servers\Portable\lastUsedDB<|||>1<|||>trading
-Servers\Portable\QueryHistory\1<|||>1<|||>2019-04-03 10:29:20|trading|16|SELECT COUNT(*) FROM VALEURS_INDICES
 Servers\Portable\QueryHistory\2<|||>1<|||>2019-04-03 11:33:37|trading|15|SELECT *<{{{><}}}>FROM VALEURS_INDICES <{{{><}}}>WHERE ID=13
 Servers\Portable\QueryHistory\3<|||>1<|||>2019-04-03 11:33:49|trading|0|SELECT *<{{{><}}}>FROM VALEURS_INDICES <{{{><}}}>WHERE ID=13<{{{><}}}>ORDER BY DATE
 Servers\Portable\QueryHistory\4<|||>1<|||>2019-04-03 11:34:12|trading|0|SELECT COUNT(*)<{{{><}}}>FROM VALEURS_INDICES <{{{><}}}>WHERE ID=13<{{{><}}}>ORDER BY DATE
@@ -95,6 +94,11 @@ Servers\Portable\QueryHistory\7<|||>1<|||>2019-04-03 19:05:26|trading|47|SELECT 
 Servers\Portable\QueryHistory\8<|||>1<|||>2019-04-03 19:05:38|trading|47|SELECT I.NOM, COUNT(*) AS 'NOMBRE DE VALEURS DEPUIS MINUIT' FROM INDICES I, VALEURS_INDICES V WHERE I.ID = V.ID GROUP BY I.NOM
 Servers\Portable\QueryHistory\9<|||>1<|||>2019-04-03 19:05:47|trading|63|SELECT I.NOM, COUNT(*) AS 'NOMBRE DE VALEURS ENREGISTREES DEPUIS MINUIT' FROM INDICES I, VALEURS_INDICES V WHERE I.ID = V.ID GROUP BY I.NOM
 Servers\Portable\QueryHistory\10<|||>1<|||>2019-04-04 11:41:20|trading|16|SELECT * FROM VALEURS_INDICES WHERE ID = 13 AND DATE = (SELECT MAX(DATE))
+Servers\Portable\QueryHistory\11<|||>1<|||>2019-04-04 11:41:34|trading|63|SELECT * FROM VALEURS_INDICES WHERE ID = 13 AND DATE = (SELECT MAX(DATE) FROM VALEURS_INDICES )
+Servers\Portable\QueryHistory\13<|||>1<|||>2019-04-04 11:43:53|trading|0|SELECT MAX(DATE) FROM VALEURS_INDICES V1 WHERE ID = 13
+Servers\Portable\QueryHistory\12<|||>1<|||>2019-04-04 11:52:12|trading|15|SELECT * FROM VALEURS_INDICES WHERE ID=13 AND DATE>'2019-04-04 11:47:09.0'
+Servers\Portable\QueryHistory\1<|||>1<|||>2019-04-07 13:42:14|trading|47|SELECT COUNT(*) FROM VALEURS_INDICES
+Servers\Portable\QueryHistory\14<|||>1<|||>2019-04-07 13:42:24|trading|516|DELETE FROM VALEURS_INDICES
 Servers\Unnamed\SessionCreated<|||>1<|||>2019-03-31 18:15:20
 Servers\Unnamed\Host<|||>1<|||>127.0.0.1
 Servers\Unnamed\WindowsAuth<|||>3<|||>0
@@ -139,3 +143,33 @@ Servers\Unnamed\QueryHistory\6<|||>1<|||>2019-04-01 20:47:16|trading|0|INSERT IN
 Servers\Unnamed\QueryHistory\7<|||>1<|||>2019-04-01 20:48:10|trading|0|INSERT INTO VALEURS_INDICES (ID,VAL) VALUES (<{{{><}}}>(SELECT ID FROM INDICES WHERE NOM='TEST2'),<{{{><}}}>'193.8')
 Servers\Unnamed\trading|indices\Sort<|||>1<|||>0_ID|
 Servers\Unnamed\trading|valeurs_indices\Sort<|||>1<|||>0_ID|
+Servers\VM\SessionCreated<|||>1<|||>2019-04-04 16:43:39
+Servers\VM\Host<|||>1<|||>92.222.23.155
+Servers\VM\WindowsAuth<|||>3<|||>0
+Servers\VM\User<|||>1<|||>FIXE
+Servers\VM\Password<|||>1<|||>696E6F7F6774757F7B7B716F373B3738346
+Servers\VM\LoginPrompt<|||>3<|||>0
+Servers\VM\Port<|||>1<|||>3306
+Servers\VM\NetType<|||>3<|||>0
+Servers\VM\Compressed<|||>3<|||>0
+Servers\VM\LocalTimeZone<|||>3<|||>0
+Servers\VM\QueryTimeout<|||>3<|||>30
+Servers\VM\KeepAlive<|||>3<|||>20
+Servers\VM\FullTableStatus<|||>3<|||>1
+Servers\VM\Databases<|||>1<|||>
+Servers\VM\Comment<|||>1<|||>
+Servers\VM\StartupScriptFilename<|||>1<|||>
+Servers\VM\TreeBackground<|||>3<|||>536870911
+Servers\VM\SSHtunnelHost<|||>1<|||>
+Servers\VM\SSHtunnelHostPort<|||>3<|||>22
+Servers\VM\SSHtunnelUser<|||>1<|||>
+Servers\VM\SSHtunnelPassword<|||>1<|||>4
+Servers\VM\SSHtunnelTimeout<|||>3<|||>4
+Servers\VM\SSHtunnelPrivateKey<|||>1<|||>
+Servers\VM\SSHtunnelPort<|||>3<|||>3307
+Servers\VM\SSL_Active<|||>3<|||>0
+Servers\VM\SSL_Key<|||>1<|||>
+Servers\VM\SSL_Cert<|||>1<|||>
+Servers\VM\SSL_CA<|||>1<|||>
+Servers\VM\SSL_Cipher<|||>1<|||>
+Servers\VM\RefusedCount<|||>3<|||>1

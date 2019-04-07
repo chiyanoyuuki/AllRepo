@@ -87,12 +87,14 @@ INDEX VERSION 1.131+C:\Users\ASC Arma\Desktop\Trading\Java\.metadata\.plugins\or
 2671826547.index
 3800104316.index
 3527318303.index
+332751617.index
 3689582347.index
 3680981177.index
 2107286136.index
 56139300.index
 1032809300.index
 2871722055.index
+2304975962.index
 1136989993.index
 2526338291.index
 3600355485.index

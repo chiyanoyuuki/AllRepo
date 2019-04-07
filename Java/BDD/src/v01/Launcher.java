@@ -8,7 +8,7 @@ public class Launcher
 	public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException
 	{
 		Class.forName("org.mariadb.jdbc.Driver");
-		java.sql.Connection connection = DriverManager.getConnection("jdbc:mariadb://192.168.1.26:3306/trading?user=FIXE&password=chiyanoyuuki1512.");
+		java.sql.Connection connection = DriverManager.getConnection("jdbc:mariadb://127.0.0.1/trading?user=root&password=chiyanoyuuki1512.");
 		Statement st = connection.createStatement();
 		
 		Timestamp t = new Timestamp(System.currentTimeMillis());
