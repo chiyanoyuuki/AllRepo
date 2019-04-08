@@ -18,7 +18,7 @@ public class Launcher
 	{
 		System.out.println("Programme lancé");
 		Class.forName("org.mariadb.jdbc.Driver");
-		java.sql.Connection connection = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/trading?user=root&password=chiyanoyuuki1512.");
+		java.sql.Connection connection = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/trading?user=root&password=Chiyanoyuuki1512.");
 		Statement st = connection.createStatement();
 		
 		indices = new HashMap<String,Indice>();

@@ -113,6 +113,14 @@ export class AccueilComponent implements OnInit {
         },
       (error)=>{console.log("ERREUR");}
     );
+
+    this.indiceService.getIndice().subscribe(
+      (response)=>
+        {
+          this.datas[0]=response;
+        },
+      (error)=>{console.log("ERREUR");}
+    );
   }
 
 }

@@ -27,29 +27,32 @@ ColWidths_MainForm.ListTables<|||>1<|||>120,70,70,120,120,70,100,50,70,70,70,70,
 ColsVisible_MainForm.ListTables<|||>1<|||>0,1,2,3,4,5,6,18
 ColPositions_MainForm.ListTables<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18
 ColSort_MainForm.ListTables<|||>1<|||>0,0
-LastSessions<|||>1<|||>Portable
-LastActiveSession<|||>1<|||>Portable
-SessionManager_WindowLeft<|||>3<|||>2853
-SessionManager_WindowTop<|||>3<|||>60
+LastSessions<|||>1<|||>Unnamed|VM
+LastActiveSession<|||>1<|||>VM
+SessionManager_WindowLeft<|||>3<|||>2689
+SessionManager_WindowTop<|||>3<|||>86
 ColWidths_frmTableEditor.listColumns<|||>1<|||>54,100,156,90,60,65,50,119,130,140,100,100
 ColsVisible_frmTableEditor.listColumns<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10,11
 ColPositions_frmTableEditor.listColumns<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10,11
 ColSort_frmTableEditor.listColumns<|||>1<|||>-1,0
-ColWidths_frmTableEditor.treeIndexes<|||>1<|||>425,100,80
+ColWidths_frmTableEditor.treeIndexes<|||>1<|||>1352,100,80
 ColsVisible_frmTableEditor.treeIndexes<|||>1<|||>0,1,2
 ColPositions_frmTableEditor.treeIndexes<|||>1<|||>0,1,2
 ColSort_frmTableEditor.treeIndexes<|||>1<|||>-1,0
-ColWidths_frmTableEditor.listForeignKeys<|||>1<|||>101,80,100,80,80,80
+ColWidths_frmTableEditor.listForeignKeys<|||>1<|||>1112,80,100,80,80,80
 ColsVisible_frmTableEditor.listForeignKeys<|||>1<|||>0,1,2,3,4,5
 ColPositions_frmTableEditor.listForeignKeys<|||>1<|||>0,1,2,3,4,5
 ColSort_frmTableEditor.listForeignKeys<|||>1<|||>-1,0
 MainWinTop<|||>3<|||>-116
 MemoEditorWidth<|||>3<|||>136
-MainWinMaximized<|||>3<|||>0
-MainWinOnMonitor<|||>3<|||>2
+MainWinMaximized<|||>3<|||>1
+MainWinOnMonitor<|||>3<|||>1
 MainWinWidth<|||>3<|||>1371
 MainWinHeight<|||>3<|||>1061
 querymemoheight<|||>3<|||>65
+ExportSQL_CreateDatabases<|||>3<|||>1
+ExportSQL_CreateTables<|||>3<|||>1
+ExportSQL_Filenames<|||>1<|||>C:\Users\ASC Arma\Desktop\createDB.sql<{{{><}}}>
 Servers\Portable\SessionCreated<|||>1<|||>2019-04-02 14:05:26
 Servers\Portable\Host<|||>1<|||>192.168.1.26
 Servers\Portable\WindowsAuth<|||>3<|||>0
@@ -99,6 +102,12 @@ Servers\Portable\QueryHistory\13<|||>1<|||>2019-04-04 11:43:53|trading|0|SELECT 
 Servers\Portable\QueryHistory\12<|||>1<|||>2019-04-04 11:52:12|trading|15|SELECT * FROM VALEURS_INDICES WHERE ID=13 AND DATE>'2019-04-04 11:47:09.0'
 Servers\Portable\QueryHistory\1<|||>1<|||>2019-04-07 13:42:14|trading|47|SELECT COUNT(*) FROM VALEURS_INDICES
 Servers\Portable\QueryHistory\14<|||>1<|||>2019-04-07 13:42:24|trading|516|DELETE FROM VALEURS_INDICES
+Servers\Portable\QueryHistory\15<|||>1<|||>2019-04-07 13:48:25|trading|0|SELECT VAL, DATE FROM VALEURS_INDICES WHERE ID=13 ORDER BY DATE
+Servers\Portable\QueryHistory\16<|||>1<|||>2019-04-07 13:48:39|trading|0|SELECT * FROM INDICES ORDER BY NOM
+Servers\Portable\QueryHistory\17<|||>1<|||>2019-04-07 13:49:30|trading|0|SELECT * FROM INDICES I WHERE (SELECT COUNT(*) FROM VALEURS_INDICES V WHERE V.ID=I.ID > 0) ORDER BY NOM
+Servers\Portable\QueryHistory\18<|||>1<|||>2019-04-07 13:53:45|trading|15|INSERT INTO VALEURS_INDICES(ID,VAL) VALUES(13,500)
+Servers\Portable\QueryHistory\19<|||>1<|||>2019-04-07 13:54:23|trading|16|INSERT INTO VALEURS_INDICES(ID,VAL) VALUES(15,500)
+Servers\Portable\trading|valeurs_indices\Sort<|||>1<|||>0_ID|
 Servers\Unnamed\SessionCreated<|||>1<|||>2019-03-31 18:15:20
 Servers\Unnamed\Host<|||>1<|||>127.0.0.1
 Servers\Unnamed\WindowsAuth<|||>3<|||>0
@@ -130,9 +139,9 @@ Servers\Unnamed\SSL_CA<|||>1<|||>
 Servers\Unnamed\SSL_Cipher<|||>1<|||>
 Servers\Unnamed\RefusedCount<|||>3<|||>3
 Servers\Unnamed\ServerVersionFull<|||>1<|||>10.3.10-MariaDB - mariadb.org binary distribution
-Servers\Unnamed\ConnectCount<|||>3<|||>4
+Servers\Unnamed\ConnectCount<|||>3<|||>5
 Servers\Unnamed\ServerVersion<|||>3<|||>100310
-Servers\Unnamed\LastConnect<|||>1<|||>2019-04-03 09:53:24
+Servers\Unnamed\LastConnect<|||>1<|||>2019-04-08 11:47:32
 Servers\Unnamed\lastUsedDB<|||>1<|||>trading
 Servers\Unnamed\QueryHistory\1<|||>1<|||>2019-04-01 20:38:14|trading|0|INSERT INTO INDICES (NOM) VALUES ('TESTh2')
 Servers\Unnamed\QueryHistory\2<|||>1<|||>2019-04-01 20:38:24|trading|0|INSERT INTO INDICES (NOM) VALUES ('TESThh2')
@@ -141,13 +150,17 @@ Servers\Unnamed\QueryHistory\4<|||>1<|||>2019-04-01 20:45:23|trading|16|INSERT I
 Servers\Unnamed\QueryHistory\5<|||>1<|||>2019-04-01 20:45:30|trading|0|INSERT INTO INDICES VALUES ((SELECT COALESCE(MAX(ID)+1,0) FROM INDICES I2),'TEST2')
 Servers\Unnamed\QueryHistory\6<|||>1<|||>2019-04-01 20:47:16|trading|0|INSERT INTO VALEURS_INDICES (ID,VAL) VALUES (<{{{><}}}>(SELECT ID FROM INDICES WHERE NOM='TEST2'),<{{{><}}}>'192.8')
 Servers\Unnamed\QueryHistory\7<|||>1<|||>2019-04-01 20:48:10|trading|0|INSERT INTO VALEURS_INDICES (ID,VAL) VALUES (<{{{><}}}>(SELECT ID FROM INDICES WHERE NOM='TEST2'),<{{{><}}}>'193.8')
+Servers\Unnamed\QueryHistory\8<|||>1<|||>2019-04-08 12:09:21|testjeu|0|SELECT * FROM CASES ORDER BY X, Y
+Servers\Unnamed\QueryHistory\9<|||>1<|||>2019-04-08 12:19:50|testjeu|15|SELECT *,<{{{><}}}>(CASE WHEN EXISTS(SELECT * FROM CASES C2 WHERE C2.X=C1.X AND C2.Y=C1.Y-1) THEN 1 ELSE 0 END) AS TOP<{{{><}}}> FROM CASES C1 ORDER BY X, Y
+Servers\Unnamed\QueryHistory\10<|||>1<|||>2019-04-08 12:20:04|testjeu|0|SELECT *,<{{{><}}}>(CASE WHEN EXISTS(SELECT * FROM CASES C2 WHERE C2.X=C1.X AND C2.Y=C1.Y-1) THEN 0 ELSE 1 END) AS TOP<{{{><}}}> FROM CASES C1 ORDER BY X, Y
+Servers\Unnamed\testjeu|cases\Sort<|||>1<|||>0_X|
 Servers\Unnamed\trading|indices\Sort<|||>1<|||>0_ID|
 Servers\Unnamed\trading|valeurs_indices\Sort<|||>1<|||>0_ID|
 Servers\VM\SessionCreated<|||>1<|||>2019-04-04 16:43:39
-Servers\VM\Host<|||>1<|||>92.222.23.155
+Servers\VM\Host<|||>1<|||>212.227.203.214
 Servers\VM\WindowsAuth<|||>3<|||>0
-Servers\VM\User<|||>1<|||>FIXE
-Servers\VM\Password<|||>1<|||>696E6F7F6774757F7B7B716F373B3738346
+Servers\VM\User<|||>1<|||>ADMIN
+Servers\VM\Password<|||>1<|||>44696A7A626F707A76766C6A323632332F1
 Servers\VM\LoginPrompt<|||>3<|||>0
 Servers\VM\Port<|||>1<|||>3306
 Servers\VM\NetType<|||>3<|||>0
@@ -163,7 +176,7 @@ Servers\VM\TreeBackground<|||>3<|||>536870911
 Servers\VM\SSHtunnelHost<|||>1<|||>
 Servers\VM\SSHtunnelHostPort<|||>3<|||>22
 Servers\VM\SSHtunnelUser<|||>1<|||>
-Servers\VM\SSHtunnelPassword<|||>1<|||>4
+Servers\VM\SSHtunnelPassword<|||>1<|||>3
 Servers\VM\SSHtunnelTimeout<|||>3<|||>4
 Servers\VM\SSHtunnelPrivateKey<|||>1<|||>
 Servers\VM\SSHtunnelPort<|||>3<|||>3307
@@ -172,4 +185,9 @@ Servers\VM\SSL_Key<|||>1<|||>
 Servers\VM\SSL_Cert<|||>1<|||>
 Servers\VM\SSL_CA<|||>1<|||>
 Servers\VM\SSL_Cipher<|||>1<|||>
-Servers\VM\RefusedCount<|||>3<|||>1
+Servers\VM\RefusedCount<|||>3<|||>11
+Servers\VM\ServerVersionFull<|||>1<|||>10.3.10-MariaDB - mariadb.org binary distribution
+Servers\VM\ConnectCount<|||>3<|||>1
+Servers\VM\ServerVersion<|||>3<|||>100310
+Servers\VM\LastConnect<|||>1<|||>2019-04-08 17:08:40
+Servers\VM\lastUsedDB<|||>1<|||>trading

@@ -19,7 +19,8 @@ public class IndiceDaoImpl
     
 	public List<Indice> getIndices()
 	{
-		String SQL = "SELECT * FROM INDICES ORDER BY NOM";
+		String SQL = "SELECT * FROM INDICES I WHERE (SELECT COUNT(*) FROM VALEURS_INDICES V WHERE V.ID=I.ID > 0) ORDER BY NOM";
+		System.out.println(SQL);
 		List<Indice> indices = jdbcTemplate.query(SQL,new BeanPropertyRowMapper<Indice>(Indice.class));   
 		return indices;
 	}
@@ -27,6 +28,7 @@ public class IndiceDaoImpl
 	public List<IndiceVal> getIndicesVals(int ID)
 	{
 		String SQL = "SELECT VAL, DATE FROM VALEURS_INDICES WHERE ID="+ID+" ORDER BY DATE";
+		System.out.println(SQL);
 		List<IndiceVal> indices = jdbcTemplate.query(SQL,new BeanPropertyRowMapper<IndiceVal>(IndiceVal.class));   
 		return indices;
 	}
@@ -34,6 +36,7 @@ public class IndiceDaoImpl
 	public List<IndiceVal> getIndicesNewVals(int ID, String DATE)
 	{
 		String SQL = "SELECT VAL, DATE FROM VALEURS_INDICES WHERE ID="+ID+" AND DATE>'"+DATE+"' ORDER BY DATE";
+		System.out.println(SQL);
 		List<IndiceVal> indices = jdbcTemplate.query(SQL,new BeanPropertyRowMapper<IndiceVal>(IndiceVal.class));   
 		return indices;
 	}
