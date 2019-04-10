@@ -7,17 +7,21 @@ import { AccueilComponent } from './components/accueil/accueil.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './services/data.service';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { IndicesComponent } from './indices/indices.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AccueilComponent
+    AccueilComponent,
+    IndicesComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MDBBootstrapModule.forRoot(),
+    MDBBootstrapModule.forRoot()
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

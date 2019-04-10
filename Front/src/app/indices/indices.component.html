@@ -1,0 +1,73 @@
+<div>
+
+  <div class="leftPart">
+    <div class="nondisp listeIndices">
+      <div class="listTitle"><p>Liste des indices</p></div>
+      <ng-template ngFor let-indice [ngForOf]="datas[0]">
+        <div class="divClickable divIndice" [ngClass]="{'selectedDiv':indice.nom==indiceSelected.nom}" (click)="clickIndice(indice)">
+          <p>{{indice.nom}}</p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+
+  <div class="body nondisp">
+    <div class="nondisp" *ngIf="chartDatasets!=undefined&&chartLabels!=undefined">
+
+      <div>
+        <input *ngFor="let time of times" type="button" [value]="time" [ngClass]="{'selectedDiv':timeSelected==time}" (click)="changeTime(time)" />
+      </div>
+
+      <div class="separBottom"></div>
+
+      <div class="nondisp">
+
+        <div class="chartTitle">
+          <p>{{indiceSelected.nom}} - {{timeSelected}}</p>
+        </div>
+
+        <div>
+          <div class="graphiqueIndices">
+            <canvas  mdbChart [chartType]="chartType" [datasets]="chartDatasets" [labels]="chartLabels" [options]="chartOptions"></canvas>
+          </div>
+        </div>
+
+        <div>
+          <div class="chartStats nondisp">
+            <div>
+              <div><p>Values shown</p></div>
+              <div><p>{{chartDatasets[0].data.length}}</p></div>
+            </div>
+            <div>
+              <div><p>{{timeSelected}} maximum</p></div>
+              <div><p>{{maxVal}}</p></div>
+            </div>
+            <div>
+              <div><p>{{timeSelected}} minimum</p></div>
+              <div><p>{{minVal}}</p></div>
+            </div>
+            <div>
+              <div><p>{{timeSelected}} start</p></div>
+              <div><p>{{chartLabels[0]}}</p></div>
+            </div>
+          </div>
+
+          <div class="chartStats nondisp">
+            <div *ngFor="let number of numbers">
+              <div><p>{{number[0]}}</p></div>
+              <div><p>{{number[1]}}</p></div>
+            </div>
+          </div>
+
+          <div class="chartStats nondisp">
+            <div>
+              <div><p>Last value</p></div>
+              <div><p>{{maxDate}}</p></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -14,19 +14,33 @@ public class Launcher
 	//-----------------------------------
 	private HashMap<String,Indice> indices;
 	
-	public Launcher() throws IOException, InterruptedException, ClassNotFoundException, SQLException
+	public Launcher()
 	{
-		System.out.println("Programme lancé");
-		Class.forName("org.mariadb.jdbc.Driver");
-		java.sql.Connection connection = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/trading?user=root&password=Chiyanoyuuki1512.");
-		Statement st = connection.createStatement();
+		show("Programme lancé");
+					
+		Statement st = null;
+		try {
+			Class.forName("org.mariadb.jdbc.Driver");
+			java.sql.Connection connection = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/trading?user=root&password=Chiyanoyuuki1512.");
+			//java.sql.Connection connection = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/trading?user=root&password=chiyanoyuuki1512.");
+			st = connection.createStatement();
+		} catch (SQLException | ClassNotFoundException e2) {show("Erreur lors de la connection à la base de données");}
+			
+		
+		
 		
 		indices = new HashMap<String,Indice>();
 		org.jsoup.Connection c = (org.jsoup.Connection) Jsoup.connect(SITE).ignoreHttpErrors(true);
-		Document d = c.get();
 		
-		Elements tables = d.select("table");
-		Elements lignes = tables.get(0).select("tr");
+		Document d;
+		Elements tables = null;
+		Elements lignes = null;
+		try {
+			d = c.get();
+			tables = d.select("table");
+			lignes = tables.get(0).select("tr");
+		} catch (IOException e1) {show("Probleme de recuperation de la page html");}
+		
 		for(Element ligne:lignes)
 		{
 			Elements colonnes = ligne.select("td");
@@ -47,14 +61,14 @@ public class Launcher
 		while(true)
 		{
 			
-			Thread.sleep(1000);
-			d = c.get();
+			try {Thread.sleep(1000);} catch (InterruptedException e) {show("Erreur lors de la pause");}
+			try {d = c.get();tables = d.select("table");} catch (IOException e1) {show("Probleme de recuperation de la page html");}
 				
-			tables = d.select("table");
-			if(tables.size()>0)
+			if(tables != null && tables.size()>0)
 			{
-				if(nb%1000==0)System.out.println("Nombre : " + nb);
+				if(nb%1000==0)show("Nombre : " + nb);
 				
+				lignes = tables.get(0).select("tr");
 				
 				lignes = tables.get(0).select("tr");
 				for(Element ligne:lignes)
@@ -71,11 +85,17 @@ public class Launcher
 			}
 			else
 			{
-				System.out.println("ERREUR : " + String.format("%05d", i++)+ " ("+nb+")");
+				show("ERREUR : " + String.format("%05d", i++)+ " ("+nb+")");
 			}
 			nb++;
 		}
 	}
 	
-	public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException, SQLException{@SuppressWarnings("unused")Launcher launcher = new Launcher();}
+	private void show(String s)
+	{
+		Timestamp t = new Timestamp(System.currentTimeMillis());
+		System.out.println(String.format("%-30s", t) + " | " + s);
+	}
+	
+	public static void main(String[] args){@SuppressWarnings("unused")Launcher launcher = new Launcher();}
 }

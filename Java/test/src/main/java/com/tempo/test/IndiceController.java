@@ -21,9 +21,9 @@ public class IndiceController
     }
 	
 	@GetMapping(value = "/IndicesVals", produces = "application/json")
-    public ResponseEntity<List<IndiceVal>> getIndicesVals(@RequestParam int ID) 
+    public ResponseEntity<List<IndiceVal>> getIndicesVals(@RequestParam int ID, @RequestParam String TIME) 
 	{
-		List<IndiceVal> indices = indiceDao.getIndicesVals(ID);
+		List<IndiceVal> indices = indiceDao.getIndicesVals(ID, TIME);
         return new ResponseEntity<List<IndiceVal>>(indices,HttpStatus.OK);
     }
 	
@@ -32,5 +32,12 @@ public class IndiceController
 	{
 		List<IndiceVal> indices = indiceDao.getIndicesNewVals(ID,DATE);
         return new ResponseEntity<List<IndiceVal>>(indices,HttpStatus.OK);
+    }
+	
+	@GetMapping(value = "/IndicesTotal", produces = "application/json")
+    public ResponseEntity<List<String>> getIndicesTotal(@RequestParam int ID) 
+	{
+		List<String> indices = indiceDao.getIndicesTotal(ID);
+        return new ResponseEntity<List<String>>(indices,HttpStatus.OK);
     }
 }

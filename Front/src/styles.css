@@ -1,8 +1,46 @@
-p
-    {color:white;}
+*
+    {position:relative;font-family: serif;margin:0;color:white;font-size:19px;}
 body
-    {background-color:#555;}
+    {margin:0;background-color:#555;}
+div
+    {display:flex;justify-content:center;width:-moz-available;}
+div input 
+    {width: 100%;height: 50px;border-radius: 15px;margin: 10px 5px;background-color: #333;color: white;font-weight: bold;font-size: 20px;border: 3px solid #777;}
+input:hover
+    {cursor:pointer;background-color:#666;}
+.separBottom
+    {border-bottom: 5px solid #aaa;margin-bottom:10px;}
+.leftPart
+    {width:250px;max-width:250px;min-width:250px;overflow-x:hidden;overflow-y:scroll;height:calc( 99vh - 85px );margin:0px 5px;}
+.nondisp
+    {display:block;}
+.listTitle p
+    {font-weight: bold;text-align: center;margin-bottom: 10px;font-size: 20px;text-decoration: underline;}
 .divClickable:hover
-    {cursor:pointer;}
+    {cursor:pointer;background-color:#888;}
 .divClickable:hover p
-    {font-weight:bold;color:pink}
+    {font-weight:bold;}
+.selectedDiv, .header .active
+    {background-color:#888;}
+.selectedDiv p, .header .active p
+    {font-weight:bold;background-color:#888;}
+.chartTitle p
+    {font-size: 30px;font-weight: bold;margin-bottom: 10px;}
+.header
+    {height:80px;min-height:80px;max-height:80px;border-bottom:5px solid #aaa;margin-bottom:5px;}
+.header .divClickable p
+    {top:25px;height:max-content;font-size:25px;}
+.body
+    {margin-left: 20px;padding-right:20px;overflow-x:hidden;overflow-y:scroll;height:calc( 99vh - 85px );}
+.graphiqueIndices
+    {background-color: #666;border: 2px solid #333;padding: 20px 20px 0px 20px;margin-bottom:20px;max-width:1200px;}
+.separHeader
+    {width:0px;border-right:5px solid #aaa;}
+.divIndice
+    {justify-content: unset;}
+    .chartStats
+    {border:1px solid #444;margin:0px 5px;}
+.chartStats div
+    {background-color:#666;margin:2px 0px;}
+.chartStats div div:last-of-type
+    {font-weight:bold;}

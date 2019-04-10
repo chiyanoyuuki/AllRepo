@@ -8,7 +8,7 @@ public class Launcher
 	public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException
 	{
 		Class.forName("org.mariadb.jdbc.Driver");
-		java.sql.Connection connection = DriverManager.getConnection("jdbc:mariadb://127.0.0.1/trading?user=root&password=chiyanoyuuki1512.");
+		java.sql.Connection connection = DriverManager.getConnection("jdbc:mariadb://212.227.203.214:3306/trading?user=ADMIN&password=Chiyanoyuuki1512.");
 		Statement st = connection.createStatement();
 		
 		Timestamp t = new Timestamp(System.currentTimeMillis());
@@ -21,7 +21,7 @@ public class Launcher
 			String d2 = d.substring(0,8)+String.format("%02d", i)+" 00:00:00";
 			System.out.println(d + " <==> " + d2);
 			
-			ResultSet rs = st.executeQuery("SELECT V.ID, I.NOM AS INDICE, V.VAL AS VALEUR, V.DATE FROM INDICES I, VALEURS_INDICES V WHERE I.ID=V.ID AND DATE >= '"+d+"' AND DATE < '"+d2+"' ORDER BY V.ID, DATE");
+			ResultSet rs = st.executeQuery("SELECT V.ID, V.VAL AS VALEUR, V.DATE FROM INDICES I, VALEURS_INDICES V WHERE I.ID=V.ID AND DATE >= '"+d+"' AND DATE < '"+d2+"' ORDER BY V.ID, DATE");
 			
 			File tmpDir = new File("./cache/"+d.substring(0,10)+".csv");
 			if(tmpDir.exists()) {System.out.println("LE FICHIER EXISTE DEJA");System.exit(0);}

@@ -1,18 +1,3 @@
-<div style="display:flex">
-  <div>
-    <ng-template ngFor let-indice [ngForOf]="datas[0]">
-      <div class="divClickable" (click)="clickIndice(indice)">
-        <p>{{indice.nom}}</p>
-      </div>
-    </ng-template>
-  </div>
-  <div style="display: block;width:100%;height:50%;" *ngIf="chartDatasets!=undefined&&chartLabels!=undefined">
-    <p style="text-align:center;font-weight:bold;font-size:30px;">{{indiceSelected.nom}}</p>
-    <canvas  mdbChart
-        [chartType]="chartType"
-        [datasets]="chartDatasets"
-        [labels]="chartLabels"
-        [options]="chartOptions">
-    </canvas>
-  </div>
+<div class="chartTitle">
+    <p>Bienvenue sur l'accueil</p>
 </div>
