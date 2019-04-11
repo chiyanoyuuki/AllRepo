@@ -25,15 +25,14 @@ public class IndiceDaoImpl
 	@Autowired
 	public void setDataSource(DataSource dataSource) { this.jdbcTemplate = new JdbcTemplate(dataSource);}
     
-	public List<Indice> getIndices()
+	public List<Indice> getIndices(String type)
 	{
-		String SQL = "SELECT * FROM INDICES I WHERE (SELECT COUNT(*) FROM VALEURS_INDICES V WHERE V.ID=I.ID > 0) ORDER BY NOM";
-		System.out.println(SQL);
+		String SQL = "SELECT I.ID, P.NOM, I.NOM FROM INDICES I, PAYS P WHERE I.PAYS = P.ID AND (SELECT COUNT(*) FROM "+type+" V WHERE V.ID=I.ID > 0) ORDER BY I.NOM";
 		List<Indice> indices = jdbcTemplate.query(SQL,new BeanPropertyRowMapper<Indice>(Indice.class));   
+		System.out.println("Liste de "+type+" récupérée");
 		return indices;
 	}
-	
-	public List<IndiceVal> getIndicesVals(int ID, String TIME)
+	public List<IndiceVal> getIndicesVals(int ID, String TIME,String type)
 	{
 		List<IndiceVal> indices = new ArrayList<IndiceVal>();
 		if(!TIME.equals("Today"))
@@ -53,21 +52,58 @@ public class IndiceDaoImpl
 					int curMonth = c.get(Calendar.MONTH)+1;
 					files = curYear+"-"+String.format("%02d", curMonth)+"-*.csv";
 				}
-				String commande = "sed -n \"/^"+ID+";.*/"+getParam(ID, files)+"\" "+files;
-		        indices.addAll(getIndices(commande));
+				String commande = "sed -n \"/^"+ID+";.*/"+getParam(ID, files,type)+"\" "+files;
+		        indices.addAll(getIndicesComm(commande,type));
 			} catch (IOException | ClassNotFoundException | SQLException | InterruptedException e) 
 			{System.out.println("PROBLEME LORS DE LA RECUPERATION DANS LES FICHIERS");}
 		}
-		int modulo = getModulo(ID);
-		String SQL = "SELECT LIGNES.VAL, LIGNES.DATE FROM(SELECT ROW_NUMBER() OVER(ORDER BY DATE) AS NUM, VAL, DATE FROM VALEURS_INDICES WHERE ID="+ID+") LIGNES WHERE MOD(LIGNES.NUM,"+modulo+")=0";
+		int modulo = getModulo(ID,type);
+		String SQL = "SELECT LIGNES.VAL, LIGNES.DATE FROM(SELECT ROW_NUMBER() OVER(ORDER BY DATE) AS NUM, VAL, DATE FROM "+type+" WHERE ID="+ID+") LIGNES WHERE MOD(LIGNES.NUM,"+modulo+")=0";
 		System.out.println(SQL);
 		indices.addAll(jdbcTemplate.query(SQL,new BeanPropertyRowMapper<IndiceVal>(IndiceVal.class)));   
 		return indices;
 	}
-	
-	private int getModulo(int ID)
+	public List<IndiceVal> getIndicesNewVals(int ID, String DATE,String type)
 	{
-		String SQL = "SELECT COUNT(*) AS NB FROM VALEURS_INDICES WHERE ID="+ID;
+		String SQL = "SELECT VAL, DATE FROM "+type+" WHERE ID="+ID+" AND DATE>'"+DATE+"' ORDER BY DATE";
+		System.out.println(SQL);
+		List<IndiceVal> indices = jdbcTemplate.query(SQL,new BeanPropertyRowMapper<IndiceVal>(IndiceVal.class));   
+		return indices;
+	}
+	public List<String> getIndicesTotal(int ID,String type) 
+	{
+		List<String> totaux = new ArrayList<String>();
+		
+		Calendar c = Calendar.getInstance();
+		int curYear = c.get(Calendar.YEAR);
+		int curMonth = c.get(Calendar.MONTH)+1;
+		try
+		{
+			String allTime = getCount(ID,"*.csv",type);
+			String year = getCount(ID,curYear+"-*.csv",type);
+			String month = getCount(ID,curYear+"-"+String.format("%02d", curMonth)+"-*.csv",type);
+			totaux.add(allTime);totaux.add(year);totaux.add(month);
+		} catch (IOException | ClassNotFoundException | SQLException | InterruptedException e) 
+		{System.out.println("PROBLEME LORS DE LA RECUPERATION DANS LES FICHIERS");}
+		
+		String SQL = "SELECT COUNT(*) AS NB FROM "+type+" WHERE ID="+ID;
+		List<Map<String,Object>> result = jdbcTemplate.queryForList(SQL);
+		String day = ""+result.get(0).get("NB");
+		totaux.add(day);
+		
+		return totaux;
+	}
+	
+	private String getCount(int ID, String files,String type) throws ClassNotFoundException, SQLException, IOException, InterruptedException
+	{
+		String commande = "sed -n \"/^"+ID+";.*/p\" "+files+" | wc -l";
+		BufferedReader reader = run(commande,type);
+		String nbLines = reader.readLine();
+		return nbLines;
+	}
+	private int getModulo(int ID, String type)
+	{
+		String SQL = "SELECT COUNT(*) AS NB FROM "+type+" WHERE ID="+ID;
 		List<Map<String,Object>> result = jdbcTemplate.queryForList(SQL);
 		int nb = Integer.parseInt(""+result.get(0).get("NB"));
 		
@@ -81,11 +117,10 @@ public class IndiceDaoImpl
 		
 		return modulo;
 	}
-	
-	private String getParam(int ID, String files) throws ClassNotFoundException, SQLException, IOException, InterruptedException
+	private String getParam(int ID, String files,String type) throws ClassNotFoundException, SQLException, IOException, InterruptedException
 	{
 		String commande = "sed -n \"/^"+ID+";.*/p\" "+files+" | wc -l";
-		BufferedReader reader = run(commande);
+		BufferedReader reader = run(commande,type);
 		int nbLines = Integer.parseInt(reader.readLine());
 		int cpt = 1;
 		String param = "{p;";
@@ -101,21 +136,19 @@ public class IndiceDaoImpl
 		reader.close();
 		return param;
 	}
-	
-	private List<IndiceVal> getIndices(String commande) throws IOException, ClassNotFoundException, SQLException, InterruptedException
+	private List<IndiceVal> getIndicesComm(String commande, String type) throws IOException, ClassNotFoundException, SQLException, InterruptedException
 	{
         List<IndiceVal> indices = new ArrayList<IndiceVal>();
-		BufferedReader reader = run(commande);
+		BufferedReader reader = run(commande,type);
         String line;
         while ((line = reader.readLine()) != null) {indices.add(new IndiceVal(Double.parseDouble(line.substring(line.indexOf(";")+1,line.lastIndexOf(";"))),line.substring(line.lastIndexOf(";")+1)));}
 		reader.close();
 		return indices;
 	}
-	
-	private BufferedReader run(String s) throws SQLException, ClassNotFoundException, IOException, InterruptedException
+	private BufferedReader run(String s,String type) throws SQLException, ClassNotFoundException, IOException, InterruptedException
 	{
 		ProcessBuilder pb = new ProcessBuilder("cmd.exe", "/c",s);
-		pb.directory(new File("C:/Users/ASC Arma/Desktop/Trading/Java/BDD/cache/"));
+		pb.directory(new File("C:/Users/ASC Arma/Desktop/Trading/Java/BDD/cache/"+type+"/"));
         Process process = pb.start();
         List<IndiceVal> indices = new ArrayList<IndiceVal>();
         
@@ -123,43 +156,4 @@ public class IndiceDaoImpl
         return reader;
 	}
 	
-	public List<IndiceVal> getIndicesNewVals(int ID, String DATE)
-	{
-		String SQL = "SELECT VAL, DATE FROM VALEURS_INDICES WHERE ID="+ID+" AND DATE>'"+DATE+"' ORDER BY DATE";
-		System.out.println(SQL);
-		List<IndiceVal> indices = jdbcTemplate.query(SQL,new BeanPropertyRowMapper<IndiceVal>(IndiceVal.class));   
-		return indices;
-	}
-
-	public List<String> getIndicesTotal(int ID) 
-	{
-		List<String> totaux = new ArrayList<String>();
-		
-		Calendar c = Calendar.getInstance();
-		int curYear = c.get(Calendar.YEAR);
-		int curMonth = c.get(Calendar.MONTH)+1;
-		try
-		{
-			String allTime = getCount(ID,"*.csv");
-			String year = getCount(ID,curYear+"-*.csv");
-			String month = getCount(ID,curYear+"-"+String.format("%02d", curMonth)+"-*.csv");
-			totaux.add(allTime);totaux.add(year);totaux.add(month);
-		} catch (IOException | ClassNotFoundException | SQLException | InterruptedException e) 
-		{System.out.println("PROBLEME LORS DE LA RECUPERATION DANS LES FICHIERS");}
-		
-		String SQL = "SELECT COUNT(*) AS NB FROM VALEURS_INDICES WHERE ID="+ID;
-		List<Map<String,Object>> result = jdbcTemplate.queryForList(SQL);
-		String day = ""+result.get(0).get("NB");
-		totaux.add(day);
-		
-		return totaux;
-	}
-	
-	private String getCount(int ID, String files) throws ClassNotFoundException, SQLException, IOException, InterruptedException
-	{
-		String commande = "sed -n \"/^"+ID+";.*/p\" "+files+" | wc -l";
-		BufferedReader reader = run(commande);
-		String nbLines = reader.readLine();
-		return nbLines;
-	}
 }

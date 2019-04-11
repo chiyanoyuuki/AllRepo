@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { IndiceService } from 'src/app/services/indice/indice.service'
 import { IndiceModule } from 'src/app/beans/indice/indice.module';
-import { IndiceValModule } from 'src/app/beans/indiceval/indiceval.module';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-indices',
@@ -15,6 +15,8 @@ export class IndicesComponent implements OnInit {
 
   times : string[] = ["All time", "Year", "Month", "Today"];
   timeSelected : string = this.times[3];
+
+  type:string;
 
   count:number = 0;
   timing;
@@ -39,11 +41,12 @@ export class IndicesComponent implements OnInit {
     scales:{xAxes:[{ticks:{fontColor:"white"}}],yAxes:[{ticks:{fontColor:"white"}}]},
   };
 
-  constructor(private indiceService : IndiceService) { }
+  constructor(private indiceService : IndiceService, private route: ActivatedRoute) { }
 
   ngOnInit() 
   {
-    this.indiceService.getIndice().subscribe(
+    this.type=this.route.snapshot.data['type'];
+    this.indiceService.getIndice(this.type).subscribe(
       (response)=>
         {
           this.datas[0]=response;
@@ -62,15 +65,15 @@ export class IndicesComponent implements OnInit {
 
   getTotal()
   {
-    this.indiceService.getTotal(this.indiceSelected.id).subscribe(
+    this.indiceService.getTotal(this.indiceSelected.id,this.type).subscribe(
       (response)=>
       {
         let tmp = response;
         this.numbers = [
           ["Today values",    tmp[3]],
-          ["Month values",    tmp[2]],
-          ["Year values",     tmp[1]],
-          ["All time values", tmp[0]],
+          ["Month values",    ""+(parseInt(tmp[2])+parseInt(tmp[3]))],
+          ["Year values",     ""+(parseInt(tmp[1])+parseInt(tmp[3]))],
+          ["All time values", ""+(parseInt(tmp[0])+parseInt(tmp[3]))],
         ]
       },
       (error)=>{console.log("ERREUR");}
@@ -79,7 +82,7 @@ export class IndicesComponent implements OnInit {
 
   getIndiceVals()
   {
-    this.indiceService.getIndiceVals(this.indiceSelected.id,this.timeSelected).subscribe(
+    this.indiceService.getIndiceVals(this.indiceSelected.id,this.timeSelected,this.type).subscribe(
       (response)=>
         {
           clearInterval(this.timing);
@@ -122,7 +125,7 @@ export class IndicesComponent implements OnInit {
 
   getNewVals()
   {
-    this.indiceService.getIndiceNewVals(this.indiceSelected.id,this.maxDate).subscribe(
+    this.indiceService.getIndiceNewVals(this.indiceSelected.id,this.maxDate,this.type).subscribe(
       (response)=>
         {
           let tmp = response;
@@ -147,7 +150,7 @@ export class IndicesComponent implements OnInit {
 
     if(this.count%4==0)
     {
-      this.indiceService.getIndice().subscribe(
+      this.indiceService.getIndice(this.type).subscribe(
         (response)=>
           {
             this.datas[0]=response;

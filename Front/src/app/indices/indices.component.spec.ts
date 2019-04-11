@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { IndicesComponent } from './indices.component';
 
-describe('IndicesComponent', () => {
+describe('CfdComponent', () => {
   let component: IndicesComponent;
   let fixture: ComponentFixture<IndicesComponent>;
 

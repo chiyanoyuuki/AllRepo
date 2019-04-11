@@ -43,9 +43,10 @@
 		<item key="FatJarPackageWizardPage.ANTSCRIPT_SAVE" value="false"/>
 		<item key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION" value="C:\Users\ASC Arma\Desktop\Trading\Java"/>
 		<item key="FatJarPackageWizardPage.LIBRARY_HANDLING" value="1"/>
-		<item key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME" value="Launcher (3) - RecupIndices"/>
-		<item key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION" value="C:\Users\ASC Arma\Desktop\Trading\Deploiement\jars\RecupIndices.jar"/>
+		<item key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME" value="Launcher (2) - BDD"/>
+		<item key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION" value="C:\Users\ASC Arma\Desktop\Trading\Deploiement\jars\BDD.jar"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="C:\Users\ASC Arma\Desktop\Trading\Deploiement\jars\BDD.jar"/>
 			<item value="C:\Users\ASC Arma\Desktop\Trading\Deploiement\jars\RecupIndices.jar"/>
 			<item value="C:\Users\ASC Arma\Desktop\Trading\Deploiement\RecupIndices.jar"/>
 		</list>

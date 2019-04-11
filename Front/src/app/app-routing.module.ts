@@ -5,7 +5,8 @@ import { IndicesComponent } from './indices/indices.component';
 
 const routes: Routes = [
   { path: 'Accueil', component: AccueilComponent },
-  { path: 'Indices', component: IndicesComponent },
+  { path: 'IndicesCFD',       component: IndicesComponent,  data:{type:"cfd"}},
+  { path: 'IndicesFutures',   component: IndicesComponent,  data:{type:"futures"}},
   { path: '', redirectTo: '/Accueil', pathMatch: 'full' },
   { path: '**', component: AccueilComponent }
 ];

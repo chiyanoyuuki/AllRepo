@@ -9,7 +9,7 @@ public class Indice
 	private String nom;
 	private double last;
 	
-	public Indice(double val, String nom)
+	public Indice(double val, String nom, String pays)
 	{
 		this.nom = nom;
 		this.last = val;
@@ -21,7 +21,7 @@ public class Indice
 		{
 			last = d;
 			try {
-				st.executeQuery("INSERT INTO VALEURS_INDICES (ID,VAL) VALUES ((SELECT ID FROM INDICES WHERE NOM='"+nom+"'),"+d+")");
+				st.executeQuery("INSERT INTO "+Launcher.type+" (ID,VAL) VALUES ((SELECT ID FROM INDICES WHERE NOM='"+nom+"'),"+d+")");
 			} catch (SQLException e) 
 			{
 				show();
