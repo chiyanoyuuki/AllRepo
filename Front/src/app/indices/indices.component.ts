@@ -90,7 +90,7 @@ export class IndicesComponent implements OnInit {
           let data = tmp.map(function(o) { return o.val; });
           let labels;
           if(this.timeSelected=="Today")labels = tmp.map(function(o) { return o.date.toString().substring(11,16); });
-          else labels = tmp.map(function(o) { return o.date });
+          else labels = tmp.map(function(o) { return o.date.toString().substring(0,16); });
 
           this.chartDatasets  = [{ data:data, label: 'Valeur'}];
           this.chartLabels    = labels;
@@ -132,7 +132,9 @@ export class IndicesComponent implements OnInit {
           if(tmp.length>0)
           {
             tmp.forEach(e => {
-              this.chartLabels.push(e.date.toString().substring(11,16));
+              if(this.timeSelected=="Today") this.chartLabels.push(e.date.toString().substring(11,16));
+              else this.chartLabels.push(e.date.toString().substring(0,16));
+             
               this.chartDatasets[0].data.push(e.val);
             });
             this.chartLabels = this.chartLabels.slice();

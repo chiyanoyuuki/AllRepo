@@ -13,6 +13,7 @@ import java.util.Map;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.*;
@@ -24,6 +25,9 @@ public class IndiceDaoImpl
 	 
 	@Autowired
 	public void setDataSource(DataSource dataSource) { this.jdbcTemplate = new JdbcTemplate(dataSource);}
+	
+	@Autowired
+	private Environment env;    
     
 	public List<Indice> getIndices(String type)
 	{
@@ -141,17 +145,21 @@ public class IndiceDaoImpl
         List<IndiceVal> indices = new ArrayList<IndiceVal>();
 		BufferedReader reader = run(commande,type);
         String line;
-        while ((line = reader.readLine()) != null) {indices.add(new IndiceVal(Double.parseDouble(line.substring(line.indexOf(";")+1,line.lastIndexOf(";"))),line.substring(line.lastIndexOf(";")+1)));}
+        while ((line = reader.readLine()) != null) 
+        {
+        	String[] tmp = line.split(";");
+        	indices.add(new IndiceVal(Double.parseDouble(tmp[1]),tmp[2]));
+        }
 		reader.close();
 		return indices;
 	}
 	private BufferedReader run(String s,String type) throws SQLException, ClassNotFoundException, IOException, InterruptedException
 	{
+		String path = env.getProperty("app.path")+"cache/"+type+"/";
+		System.out.println("path:"+path);
 		ProcessBuilder pb = new ProcessBuilder("cmd.exe", "/c",s);
-		pb.directory(new File("C:/Users/ASC Arma/Desktop/Trading/Java/BDD/cache/"+type+"/"));
+		pb.directory(new File(path));
         Process process = pb.start();
-        List<IndiceVal> indices = new ArrayList<IndiceVal>();
-        
         BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
         return reader;
 	}

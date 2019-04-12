@@ -2,7 +2,7 @@ ColWidths_connform.ListSessions<|||>1<|||>163,50,50,50,50,50,53
 ColsVisible_connform.ListSessions<|||>1<|||>0
 ColPositions_connform.ListSessions<|||>1<|||>0,1,2,3,4,5,6
 ColSort_connform.ListSessions<|||>1<|||>0,0
-MainWinLeft<|||>3<|||>2469
+MainWinLeft<|||>3<|||>2012
 ColWidths_MainForm.ListDatabases<|||>1<|||>150,80,50,50,50,50,50,50,50,50,120
 ColsVisible_MainForm.ListDatabases<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10
 ColPositions_MainForm.ListDatabases<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10
@@ -28,9 +28,9 @@ ColsVisible_MainForm.ListTables<|||>1<|||>0,1,2,3,4,5,6,18
 ColPositions_MainForm.ListTables<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18
 ColSort_MainForm.ListTables<|||>1<|||>0,0
 LastSessions<|||>1<|||>VM|Unnamed
-LastActiveSession<|||>1<|||>Unnamed
-SessionManager_WindowLeft<|||>3<|||>4609
-SessionManager_WindowTop<|||>3<|||>203
+LastActiveSession<|||>1<|||>VM
+SessionManager_WindowLeft<|||>3<|||>2159
+SessionManager_WindowTop<|||>3<|||>89
 ColWidths_frmTableEditor.listColumns<|||>1<|||>54,100,156,90,60,65,50,119,130,140,100,100
 ColsVisible_frmTableEditor.listColumns<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10,11
 ColPositions_frmTableEditor.listColumns<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10,11
@@ -45,14 +45,15 @@ ColPositions_frmTableEditor.listForeignKeys<|||>1<|||>0,1,2,3,4,5
 ColSort_frmTableEditor.listForeignKeys<|||>1<|||>-1,0
 MainWinTop<|||>3<|||>-238
 MemoEditorWidth<|||>3<|||>136
-MainWinMaximized<|||>3<|||>1
+MainWinMaximized<|||>3<|||>0
 MainWinOnMonitor<|||>3<|||>1
-MainWinWidth<|||>3<|||>1371
+MainWinWidth<|||>3<|||>1828
 MainWinHeight<|||>3<|||>1061
-querymemoheight<|||>3<|||>228
+querymemoheight<|||>3<|||>203
 ExportSQL_CreateDatabases<|||>3<|||>1
 ExportSQL_CreateTables<|||>3<|||>1
 ExportSQL_Filenames<|||>1<|||>C:\Users\ASC Arma\Desktop\createDB.sql<{{{><}}}>
+queryhelperswidth<|||>3<|||>611
 Servers\Portable\SessionCreated<|||>1<|||>2019-04-02 14:05:26
 Servers\Portable\Host<|||>1<|||>192.168.1.26
 Servers\Portable\WindowsAuth<|||>3<|||>0
@@ -139,10 +140,10 @@ Servers\Unnamed\SSL_CA<|||>1<|||>
 Servers\Unnamed\SSL_Cipher<|||>1<|||>
 Servers\Unnamed\RefusedCount<|||>3<|||>3
 Servers\Unnamed\ServerVersionFull<|||>1<|||>10.3.10-MariaDB - mariadb.org binary distribution
-Servers\Unnamed\ConnectCount<|||>3<|||>7
+Servers\Unnamed\ConnectCount<|||>3<|||>8
 Servers\Unnamed\ServerVersion<|||>3<|||>100310
-Servers\Unnamed\LastConnect<|||>1<|||>2019-04-11 10:28:26
-Servers\Unnamed\lastUsedDB<|||>1<|||>testjeu
+Servers\Unnamed\LastConnect<|||>1<|||>2019-04-12 12:38:47
+Servers\Unnamed\lastUsedDB<|||>1<|||>
 Servers\Unnamed\QueryHistory\1<|||>1<|||>2019-04-01 20:38:14|trading|0|INSERT INTO INDICES (NOM) VALUES ('TESTh2')
 Servers\Unnamed\QueryHistory\2<|||>1<|||>2019-04-01 20:38:24|trading|0|INSERT INTO INDICES (NOM) VALUES ('TESThh2')
 Servers\Unnamed\QueryHistory\3<|||>1<|||>2019-04-01 20:42:08|trading|0|INSERT INTO INDICES VALUES ((SELECT COALESCE(MAX(ID)+1,0) FROM INDICES I2),'TESThh2')
@@ -155,6 +156,7 @@ Servers\Unnamed\QueryHistory\9<|||>1<|||>2019-04-08 12:19:50|testjeu|15|SELECT *
 Servers\Unnamed\QueryHistory\10<|||>1<|||>2019-04-08 12:20:04|testjeu|0|SELECT *,<{{{><}}}>(CASE WHEN EXISTS(SELECT * FROM CASES C2 WHERE C2.X=C1.X AND C2.Y=C1.Y-1) THEN 0 ELSE 1 END) AS TOP<{{{><}}}> FROM CASES C1 ORDER BY X, Y
 Servers\Unnamed\QueryHistory\11<|||>1<|||>2019-04-08 23:54:54|testjeu|0|SELECT *, (CASE WHEN EXISTS(SELECT * FROM CASES C2 WHERE C2.MAP=0 AND C2.X=C1.X AND C2.Y=C1.Y-1) THEN 1 ELSE 0 END) AS TOP FROM CASES C1 WHERE C1.MAP=0 ORDER BY X, Y
 Servers\Unnamed\QueryHistory\12<|||>1<|||>2019-04-08 23:57:54|testjeu|0|SELECT *, <{{{><}}}><{{{><}}}>(CASE WHEN EXISTS(SELECT * FROM CASES C2 WHERE C2.MAP=0 AND C2.X=C1.X 	AND C2.Y=C1.Y-1) THEN 0 ELSE 1 END) AS bord1,<{{{><}}}>(CASE WHEN EXISTS(SELECT * FROM CASES C2 WHERE C2.MAP=0 AND C2.X=C1.X+1 AND C2.Y=C1.Y	) THEN 0 ELSE 2 END) AS bord2,<{{{><}}}>(CASE WHEN EXISTS(SELECT * FROM CASES C2 WHERE C2.MAP=0 AND C2.X=C1.X 	AND C2.Y=C1.Y+1) THEN 0 ELSE 4 END) AS bord4, <{{{><}}}>(CASE WHEN EXISTS(SELECT * FROM CASES C2 WHERE C2.MAP=0 AND C2.X=C1.X-1 AND C2.Y=C1.Y	) THEN 0 ELSE 8 END) AS bord8<{{{><}}}><{{{><}}}>FROM CASES C1 WHERE C1.MAP=0 ORDER BY X, Y
+Servers\Unnamed\QueryHistory\13<|||>1<|||>2019-04-12 12:54:22||0|SELECT<{{{><}}}>(SELECT COUNT(*) FROM CFD) AS CFD,<{{{><}}}>(SELECT COUNT(*) FROM FUTURES) AS FUTURES
 Servers\Unnamed\testjeu|cases\Sort<|||>1<|||>0_X|
 Servers\Unnamed\trading|indices\Sort<|||>1<|||>0_ID|
 Servers\Unnamed\trading|valeurs_indices\Sort<|||>1<|||>0_ID|
@@ -189,9 +191,9 @@ Servers\VM\SSL_CA<|||>1<|||>
 Servers\VM\SSL_Cipher<|||>1<|||>
 Servers\VM\RefusedCount<|||>3<|||>11
 Servers\VM\ServerVersionFull<|||>1<|||>10.3.10-MariaDB - mariadb.org binary distribution
-Servers\VM\ConnectCount<|||>3<|||>11
+Servers\VM\ConnectCount<|||>3<|||>14
 Servers\VM\ServerVersion<|||>3<|||>100310
-Servers\VM\LastConnect<|||>1<|||>2019-04-11 09:59:51
+Servers\VM\LastConnect<|||>1<|||>2019-04-12 11:39:48
 Servers\VM\lastUsedDB<|||>1<|||>trading
 Servers\VM\QueryHistory\1<|||>1<|||>2019-04-10 11:06:20|trading|281|SELECT * FROM VALEURS_INDICES
 Servers\VM\QueryHistory\2<|||>1<|||>2019-04-10 15:30:54|trading|0|SELECT COUNT(*) FROM VALEURS_INDICES WHERE ID=0;
@@ -214,10 +216,11 @@ Servers\VM\QueryHistory\18<|||>1<|||>2019-04-10 17:08:50|trading|15|SELECT COUNT
 Servers\VM\QueryHistory\19<|||>1<|||>2019-04-11 11:12:51|trading|15|SELECT DISTINCT ID FROM CFD
 Servers\VM\QueryHistory\20<|||>1<|||>2019-04-11 11:13:06|trading|15|SELECT * FROM INDICES WHERE ID IN (SELECT DISTINCT ID FROM CFD)
 Servers\VM\QueryHistory\22<|||>1<|||>2019-04-11 11:15:24|trading|0|SELECT <{{{><}}}>(SELECT COUNT(*) FROM CFD) AS CFD,<{{{><}}}>(SELECT COUNT(*) FROM FUTURES) AS FUTURES
-Servers\VM\QueryHistory\21<|||>1<|||>2019-04-11 11:24:10|trading|31|SELECT * FROM INDICES I WHERE (SELECT COUNT(*) FROM CFD V WHERE V.ID=I.ID > 0 ) ORDER BY NOM
-Servers\VM\QueryHistory\23<|||>1<|||>2019-04-11 11:24:18|trading|47|SELECT * FROM INDICES I WHERE (SELECT COUNT(*) FROM FUTURES V WHERE V.ID=I.ID > 0 ) ORDER BY NOM
 Servers\VM\QueryHistory\24<|||>1<|||>2019-04-11 11:27:13|trading|47|SELECT I.ID, P.NOM, I.NOM FROM INDICES I, PAYS P WHERE I.PAYS = P.ID AND (SELECT COUNT(*) FROM cfd V WHERE V.ID=I.ID > 0) ORDER BY I.NOM
-Servers\VM\QueryHistory\25<|||>1<|||>2019-04-11 13:13:22|trading|15|SELECT <{{{><}}}>(SELECT COUNT(*) FROM CFD) AS CFD,<{{{><}}}>(SELECT COUNT(*) FROM FUTURES) AS FUTURESNOM
+Servers\VM\QueryHistory\26<|||>1<|||>2019-04-11 13:13:40|trading|281|SELECT * FROM INDICES I WHERE (SELECT COUNT(*) FROM CFD V WHERE V.ID=I.ID > 0 ) ORDER BY NOM
+Servers\VM\QueryHistory\21<|||>1<|||>2019-04-11 13:13:49|trading|328|SELECT * FROM INDICES I WHERE (SELECT COUNT(*) FROM FUTURES V WHERE V.ID=I.ID > 0 ) ORDER BY NOM
+Servers\VM\QueryHistory\25<|||>1<|||>2019-04-12 11:40:11|trading|140|SELECT <{{{><}}}>(SELECT COUNT(*) FROM CFD) AS CFD,<{{{><}}}>(SELECT COUNT(*) FROM FUTURES) AS FUTURESNOM
+Servers\VM\QueryHistory\23<|||>1<|||>2019-04-12 13:13:35|trading|78|SELECT<{{{><}}}>(SELECT COUNT(*) FROM CFD) AS CFD,<{{{><}}}>(SELECT COUNT(*) FROM FUTURES) AS FUTURES
 Servers\VM\trading|cfd\Sort<|||>1<|||>1_DATE|
 Servers\VM\trading|futures\Sort<|||>1<|||>1_DATE|
 Servers\VM\trading|indices\Sort<|||>1<|||>0_NOM|

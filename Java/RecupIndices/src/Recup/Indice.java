@@ -15,13 +15,13 @@ public class Indice
 		this.last = val;
 	}
 	
-	public void addVal(double d, Statement st)
+	public void addVal(double d, Statement st, String type)
 	{
 		if(last!=d)
 		{
 			last = d;
 			try {
-				st.executeQuery("INSERT INTO "+Launcher.type+" (ID,VAL) VALUES ((SELECT ID FROM INDICES WHERE NOM='"+nom+"'),"+d+")");
+				st.executeQuery("INSERT INTO "+type+" (ID,VAL) VALUES ((SELECT ID FROM INDICES WHERE NOM='"+nom+"'),"+d+")");
 			} catch (SQLException e) 
 			{
 				show();
