@@ -156,7 +156,6 @@ public class IndiceDaoImpl
 	private BufferedReader run(String s,String type) throws SQLException, ClassNotFoundException, IOException, InterruptedException
 	{
 		String path = env.getProperty("app.path")+"cache/"+type+"/";
-		System.out.println("path:"+path);
 		ProcessBuilder pb = new ProcessBuilder("cmd.exe", "/c",s);
 		pb.directory(new File(path));
         Process process = pb.start();

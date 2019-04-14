@@ -5399,3 +5399,8 @@ org.eclipse.jdt.core.JavaModelException: bin/Recup [in RecupLocal] is not on its
 2019-04-13 19:06:11,635 [Worker-214: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2019-04-13 19:06:11,638 [Worker-214: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2019-04-13 19:06:11,638 [Worker-214: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Charles POURE\Desktop\Trading\AllRepo\Java\test\src\test\resources
+2019-04-14 14:46:32,364 [Worker-290: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-04-14 14:46:32,368 [Worker-290: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-04-14 14:46:32,372 [Worker-290: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-04-14 14:46:32,375 [Worker-290: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-04-14 14:46:32,377 [Worker-290: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Charles POURE\Desktop\Trading\AllRepo\Java\test\src\test\resources
