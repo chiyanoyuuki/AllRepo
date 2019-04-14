@@ -2,6 +2,7 @@ package Recup;
 
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 public class Indice 
@@ -15,25 +16,26 @@ public class Indice
 		this.last = val;
 	}
 	
-	public void addVal(double d, Statement st, String type)
+	public void addVal(double d, Statement st, String type, String bdd)
 	{
 		if(last!=d)
 		{
+			String SQL = "INSERT INTO "+type+" (ID,VAL) VALUES ((SELECT ID FROM "+bdd+" WHERE NOM='"+nom+"'),"+d+")";
 			last = d;
-			try {
-				st.executeQuery("INSERT INTO "+type+" (ID,VAL) VALUES ((SELECT ID FROM INDICES WHERE NOM='"+nom+"'),"+d+")");
-			} catch (SQLException e) 
+			try 
 			{
-				show();
-				e.printStackTrace();
-			}
+				
+				st.executeQuery(SQL);
+			} 
+			catch (SQLException e) {show("Erreur insert new val : "+SQL);}
 		}
 	}
 	
-	public void show()
+	private void show(String s)
 	{
-		System.out.print(String.format("%-60s", nom));
-		System.out.print(String.format("%-20s", "LAST : "+last));
-		System.out.println();
+		Timestamp t = new Timestamp(System.currentTimeMillis());
+		System.out.println(String.format("%-30s", t) + " | " + s);
 	}
+	
+	public String toString() {return this.nom + " : " + this.last;}
 }

@@ -14,7 +14,7 @@ export class IndicesComponent implements OnInit {
   indiceSelected : IndiceModule;
 
   times : string[] = ["All time", "Year", "Month", "Today"];
-  timeSelected : string = this.times[3];
+  timeSelected : string = this.times[0];
 
   type:string;
 
@@ -111,6 +111,7 @@ export class IndicesComponent implements OnInit {
   clickIndice(indice:IndiceModule)
   {
     this.indiceSelected = indice;
+    this.getTotal();
     this.getIndiceVals();
   }
 
@@ -149,17 +150,6 @@ export class IndicesComponent implements OnInit {
         },
       (error)=>{console.log("ERREUR");}
     );
-
-    if(this.count%4==0)
-    {
-      this.indiceService.getIndice(this.type).subscribe(
-        (response)=>
-          {
-            this.datas[0]=response;
-          },
-        (error)=>{console.log("ERREUR");}
-      );
-    }
   }
 
   changeTime(time)

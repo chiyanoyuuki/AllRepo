@@ -31,7 +31,7 @@ public class IndiceDaoImpl
     
 	public List<Indice> getIndices(String type)
 	{
-		String SQL = "SELECT I.ID, P.NOM, I.NOM FROM INDICES I, PAYS P WHERE I.PAYS = P.ID AND (SELECT COUNT(*) FROM "+type+" V WHERE V.ID=I.ID > 0) ORDER BY I.NOM";
+		String SQL = "SELECT I.ID, P.NOM, I.NOM FROM INDICES I, PAYS P WHERE I.PAYS = P.ID ORDER BY I.NOM";
 		List<Indice> indices = jdbcTemplate.query(SQL,new BeanPropertyRowMapper<Indice>(Indice.class));   
 		System.out.println("Liste de "+type+" récupérée");
 		return indices;

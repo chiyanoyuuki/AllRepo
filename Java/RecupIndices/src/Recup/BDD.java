@@ -13,17 +13,23 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.TimerTask;
 
-public class BDD extends TimerTask
+public class BDD
 {
 	private String ojd,hier;
 	private Statement st;
+	private String[][] SITES;
 	
-	public BDD(java.sql.Connection conn){try{st = conn.createStatement();}catch(SQLException e) {show("Erreur SQL");}}
-	
-	@Override
-	public void run()
-	{ 
-		
+	public BDD(String[][] SITES, Statement st) 
+	{
+		show("========== CACHE ===============");
+		this.SITES = SITES;
+		this.st=st;
+		run();
+		show("========== END CACHE ===============");
+	}
+
+	private void run()
+	{ 		
 		SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
 		Calendar c = Calendar.getInstance();
 		ojd = f.format(c.getTime()) + " 00:00:00";
@@ -32,17 +38,19 @@ public class BDD extends TimerTask
 		
 		show(ojd + " <=> " + hier);
 		
-		write("cfd");
-		write("futures");
+		for(String[] SITE : SITES)
+		{
+			write(SITE[1],SITE[6]);
+		}
 	}
 	
-	private void write(String type)
+	private void write(String type, String bdd)
 	{
 		show("Lancement du cache "+type);
 		ResultSet rs;
 		try {
 		
-			rs = st.executeQuery("SELECT V.ID, V.VAL AS VALEUR, V.DATE FROM INDICES I, "+type+" V WHERE I.ID=V.ID AND DATE >= '"+hier+"' AND DATE < '"+ojd+"' ORDER BY V.ID, DATE");
+			rs = st.executeQuery("SELECT V.ID, V.VAL AS VALEUR, V.DATE FROM "+bdd+" I, "+type+" V WHERE I.ID=V.ID AND DATE >= '"+hier+"' AND DATE < '"+ojd+"' ORDER BY V.ID, DATE");
 			
 			File tmpDir = new File("./cache/"+type+"/"+hier.substring(0,10)+".csv");
 			if(tmpDir.exists()) 

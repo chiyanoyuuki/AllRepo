@@ -44,3 +44,7 @@ input:hover
     {background-color:#666;margin:2px 0px;}
 .chartStats div div:last-of-type
     {font-weight:bold;}
+.disabledDiv
+    {background-color:#bbb;color:#666;}
+.disabledDiv:hover
+    {background-color:#bbb;color:#666;cursor:not-allowed;}

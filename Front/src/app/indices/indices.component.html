@@ -12,10 +12,11 @@
   </div>
 
   <div class="body nondisp">
-    <div class="nondisp" *ngIf="chartDatasets!=undefined&&chartLabels!=undefined">
+    <div class="nondisp" *ngIf="chartDatasets!=undefined&&chartLabels!=undefined&&numbers[3][1]>0">
 
       <div>
-        <input *ngFor="let time of times" type="button" [value]="time" [ngClass]="{'selectedDiv':timeSelected==time}" (click)="changeTime(time)" />
+        <input *ngFor="let time of times;let i=index" type="button" [value]="time" [ngClass]="{'selectedDiv':timeSelected==time,'disabledDiv':i==3&&numbers[0][1]==0}" 
+        (click)="!(i==3&&numbers[0][1]==0)?changeTime(time):false" />
       </div>
 
       <div class="separBottom"></div>
